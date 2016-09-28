@@ -1,0 +1,36 @@
+# 3 программа (2 вариант)
+
+#!/usr/bin/perl
+
+use 5.010; 
+use strict;
+use warnings;
+use Data::Dumper;
+use DDP;
+
+open(MYFILE, "<done.csv");
+my $ref_AoA;
+my @AoA;
+while(<MYFILE>)
+{	
+	push  @AoA,[split(/;/)];
+	$ref_AoA=\@AoA;
+}
+say "menu\n1-Data::Dumper\n2-DDP";
+while(my $choose = <STDIN>)
+{
+	if ($choose =~ /1/)
+	{
+		print Dumper($ref_AoA);
+	}
+	elsif ($choose =~ /2/)
+	{
+		p($ref_AoA);
+	}
+	else 
+	{
+		say "you must choose 1 or 2\n";	
+	}
+	say "1-Data::Dumper\n2-DDP";
+}
+close(MYFILE);
