@@ -1,0 +1,16 @@
+m $obj   												
+/menu
+c 18
+x \@AoA
+l 18-34
+/choose
+c 19
+n
+p $choose
+n
+n
+n
+p $choose
+n
+n
+q
