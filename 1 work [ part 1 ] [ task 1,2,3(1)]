@@ -13,7 +13,7 @@ dir /a:-s-d /-c | perl -ne "if(/^\d{2}\./){s/(\S+)[ ]+(\S+)[ ]+(\S+)[ ]+/$1;$2;$
 #старый вариант
 perl -lnaF';' -e "$all++; if($F[2]>1048576){$yes++;print $F[3]}; }{ $yes*=1;$all*=1; print qq{\nRight files:$yes;\nAll files :$all;}" done.csv
 
-# новый вариант 
+#новый вариант 
 perl -lnaF';' -e "if($F[2]>1048576){$yes++;print $F[3]}; }{ $yes*=1; print qq{\nRight files:$yes;\nAll files :$.;}" done.csv
 
 # однострочник 3 (1 вариант)
@@ -21,4 +21,8 @@ perl -lnaF';' -e "if($F[2]>1048576){$yes++;print $F[3]}; }{ $yes*=1; print qq{\n
 # строит структуру данных в виде массива массивов
 # распечатает его при помощи модулей DDP и Data::Dumper
 
+#старый вариант
 perl -MData::Dumper -MDDP -ne "push @$ref_AoA,[split(/;/)]; }{ print Dumper($ref_AoA); p($ref_AoA);" done.csv      
+
+#новый вариант 
+perl -MData::Dumper -MDDP -naF';' -e "push @$ref_AoA,[@F]; }{ print Dumper($ref_AoA); p($ref_AoA);" done.csv
