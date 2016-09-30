@@ -1,13 +1,46 @@
 # 3 программа (2 вариант)
+# новая версия(исправленная ,данные читаются с потока стандартного входа.)
+#!/usr/bin/perl
+use 5.010;  # for say
+use strict;
+use warnings;
+use Data::Dumper;
+use DDP;
+my $ref_AoA;
+my @AoA;
+while(<>)
+{	
+	push  @AoA,[split(/;/)];
+	$ref_AoA=\@AoA;
+}
+say "menu\n1-Data::Dumper\n2-DDP";
+while(my $choose = <STDIN>)
+{
+	if ($choose =~ /1/)
+	{
+		print Dumper($ref_AoA);
+	}
+	elsif ($choose =~ /2/)
+	{
+		p($ref_AoA);
+	}
+	else 
+	{
+		say "error ";	
+	}
+	say "1-Data::Dumper\n2-DDP";
+}
+
+
+
+#старая версия 
 
 #!/usr/bin/perl
-
 use 5.010; 
 use strict;
 use warnings;
 use Data::Dumper;
 use DDP;
-
 open(MYFILE, "<done.csv");
 my $ref_AoA;
 my @AoA;
