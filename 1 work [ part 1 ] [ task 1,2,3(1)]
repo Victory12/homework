@@ -7,7 +7,8 @@
 dir /a:-s-d /-c | perl -ne "if(/^\d{2}\./){s/(\S+)[ ]+(\S+)[ ]+(\S+)[ ]+/$1;$2;$3;/; print $_;}">>done.csv
 
 #новый вариант
-dir /a:-s-d /-c | perl -ne "if(/^\d{2}\./){@Fa=split (' ',$_,4); print join (';',$Fa[0],$Fa[1],$Fa[2]),$Fa[3];}">>done.csv
+
+C:\Users\1>dir /a:-s-d /-c | perl -ne "if(/^\d{2}\./){@Fa=split (' ',$_,4); print join (';',$Fa[0],$Fa[1],$Fa[2],$Fa[3]),$Fa[4];}">>done.csv
 
 # однострочник 2
 # читает со стандартного входа файл созданый в 1 задании
